@@ -2,13 +2,13 @@
 This tool will whitelist the Azure IPs from the published Azure IP Ranges and Service Tags by Microsoft. The Script runs whitelisting only if the IPs are changed based on the file checksum.
 
 ## Features
--------------
+
 - Downloads Azure IPs and runs Whitelisting only on IP changes (based on file checksum)
 - Supports Key pair Authentication
 - Config driven to support multiple Azure Service Tag IDs
 
 ## Setup
-----------
+
 
 ### Snowflake
 
@@ -102,19 +102,19 @@ whitelist.keys        | ID of the Azure Services from the Service Tags. It is re
 
 `pip install -r requirements.txt`
 
-+ Execute the python script `aad_policy.py`
-`python aad_policy_py`
++ Execute the python script `ip_whitelist.py`
+`python ip_whitelist.py`
 
 + Schedule the script using a scheduler
 
 ## Contribution
-----------------
+
 This project uses GitHub Issues to track bugs and feature requests. Please search the existing issues before filing new issues to avoid duplicates. For new issues, file your bug or feature request as a new Issue.
 
 Please use PR against an bug or feature request for Contribution.
 
 ## Third Party Packages
-------------------------
+
 The script would not be possible without the following third party packages and all those that maintain and have contributed.
 
 Package                             | License         | URL
@@ -125,7 +125,7 @@ beautifulsoup4                      | MIT             | https://pypi.org/project
 requests                            | Apache 2.0      | https://pypi.org/project/requests/
 
 ## Legal
-----------
+
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this tool except in compliance with the License. You may obtain a copy of the License at: http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
