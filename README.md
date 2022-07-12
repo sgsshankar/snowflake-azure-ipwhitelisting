@@ -80,7 +80,6 @@ GRANT OWNERSHIP on NETWORK POLICY <name> TO ROLE $role_name COPY CURRENT GRANTS;
 
 + Update the config.json with the Snowflake details
 
-~~~~json
 Key                   | Description                         | Example
 -------------         | -------------                       | -------
 snowflake.account     | URL of the Snowflake Account        | abc12345.us-east-1.azure
@@ -93,7 +92,6 @@ snowflake.role        | Role of the Service Account         | SECURITYADMIN
 whitelist.url         | URL of the Azure IP JSON Files (https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
 whitelist.policy      | Snowflake Network Policy Name       | Azure_Policy
 whitelist.keys        | ID of the Azure Services from the Service Tags. It is recommended to filter only IDs for the services needed
-~~~~
 
 + Set the environment variable `PRIVATE_KEY_PASSPHRASE` with the Password of encrypted Key pair
 
