@@ -13,7 +13,10 @@
         "policy": "<Enter Network Policy Name>",
         "keys":[
             "AzureActiveDirectory",
-            "AzureDevOps"
+            "AzureDevOps",
+            "DataFactory",
+            "AzureMachineLearning",
+            "AzureDatabricks"
             ]
     }
 }
