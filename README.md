@@ -15,26 +15,30 @@ This tool will whitelist the Azure IPs from the published Azure IP Ranges and Se
 + Create separate Database `SNOWUTILS` and Schema `IP_WHITELIST` for the Script
 
 ~~~~sql
-set database_name = 'SNOWUTILS';
-set schema_name = 'IP_WHITELIST'
-set role_name = 'SECURITYADMIN'; 
-
-USE ROLE $role_name;
-CREATE DATABASE IF NOT EXISTS $database_name;
-CREATE SCHEMA IF NOT EXISTS $database_name.$schema_name;
+USE ROLE SYSADMIN;
+CREATE DATABASE IF NOT EXISTS SNOWUTILS;
+CREATE SCHEMA IF NOT EXISTS SNOWUTILS.IP_WHITELIST;
 ~~~~
 
 + Create Tables `IP_CHECKSUM`
 
 ~~~~sql
-USE DATABASE $database_name;
-USE SCHEMA $schema_name;
-USE ROLE $role_name;
+USE ROLE SYSADMIN;
+USE DATABASE SNOWUTILS;
+USE SCHEMA IP_WHITELIST;
 
 CREATE TABLE IP_CHECKSUM (
     DATE TIMESTAMP_NTZ(9),
     CHECKSUM VARCHAR(16777216)
 );
+~~~~
+
++ Add the permissions for the objects to role `SECURITYADMIN`
+
+~~~~sql
+GRANT USAGE ON DATABASE SNOWUTILS TO ROLE SECURITYADMIN;
+GRANT USAGE ON SCHEMA SNOWUTILS.IP_WHITELIST TO ROLE SECURITYADMIN;
+GRANT SELECT, INSERT, UPDATE, DELETE, TRUNCATE ON TABLE SNOWUTILS.IP_WHITELIST.IP_CHECKSUM TO ROLE SECURITYADMIN;
 ~~~~
 
 #### Network Policy
