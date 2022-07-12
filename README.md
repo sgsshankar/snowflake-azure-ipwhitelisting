@@ -58,14 +58,13 @@ CREATE [ OR REPLACE ] NETWORK POLICY <name>
 + Create a Role `NETWORKADMIN`
 
 ~~~~sql
-USE ROLE $role_name;
+USE ROLE SECURITYADMIN;
 CREATE ROLE IF NOT EXISTS NETWORKADMIN;
 ~~~~
 
 + Provide `NETWORKADMIN` role `OWNERSHIP` access on the Network Policy
 
 ~~~~sql
-USE ROLE $role_name;
 GRANT OWNERSHIP on NETWORK POLICY <name> TO ROLE $role_name COPY CURRENT GRANTS;
 ~~~~
 
