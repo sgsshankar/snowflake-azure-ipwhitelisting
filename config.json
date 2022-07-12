@@ -2,8 +2,8 @@
     "snowflake":{
         "account": "<Enter Snowflake Account>",
 		"user": "<Enter User Name>",
-		"pkey": "<Enter Path of Private Key>",
-		"database":"IT",
+		"pkey": "rsa_key.p8",
+		"database":"SNOWUTILS",
 		"warehouse":"COMPUTE_WH",
 		"schema":"IP_WHITELIST",
 		"role":"SECURITYADMIN"
