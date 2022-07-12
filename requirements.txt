@@ -1,0 +1,4 @@
+snowflake-connector-python
+snowflake-connector-python[pandas]
+beautifulsoup4
+requests
