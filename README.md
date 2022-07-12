@@ -48,7 +48,7 @@ CREATE [ OR REPLACE ] NETWORK POLICY <name>
    [ COMMENT = '<string_literal>' ]
 ~~~~
 
-> For Security restriction, it is recommended to use SECURITYADMIN or create separate role dedicated for Network automation.
+> For Security restriction, it is recommended to use SECURITYADMIN or create separate role dedicated for Network automation. It is also recommended to have a separate Network Policy for Azure Services associated with particular service accounts.
 
 
 + Create a Role `NETWORKADMIN`
@@ -89,7 +89,7 @@ snowflake.schema      | Configuration Schema                | IP_WHITELIST
 snowflake.role        | Role of the Service Account         | SECURITYADMIN
 whitelist.url         | URL of the Azure IP JSON Files (https://docs.microsoft.com/en-us/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files)
 whitelist.policy      | Snowflake Network Policy Name       | Azure_Policy
-whitelist.keys        | ID of the Azure Services from the Service Tags
+whitelist.keys        | ID of the Azure Services from the Service Tags. It is recommended to filter only IDs for the services needed
 ~~~~
 
 + Set the environment variable `PRIVATE_KEY_PASSPHRASE` with the Password of encrypted Key pair
