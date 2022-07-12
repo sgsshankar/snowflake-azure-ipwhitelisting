@@ -47,7 +47,7 @@ try:
         msurl = parent_element['href']
 except Exception as e:
     print(e)
-    print("Error Happened")
+    print("Error Parsing the URL")
 
 print(msurl)
 
@@ -100,7 +100,7 @@ try:
 except:
     pass
 
-sql = "Select * from aad_ip_checksum;"
+sql = "Select * from ip_checksum;"
 rset = cursor.execute(sql)
 df=cursor.fetch_pandas_all()
 
@@ -112,10 +112,10 @@ if df.empty:
     for c in ip_list:
         ips=ips + c + ','  
     ips=ips[:-1]    
-    sql="CREATE OR REPLACE NETWORK POLICY "+policy+" ALLOWED_IP_LIST = (" + ips + ")"
+    sql="ALTER NETWORK POLICY "+policy+" SET ALLOWED_IP_LIST = (" + ips + ")"
     cursor.execute (sql)
     #storing checksum in db
-    sql = "insert into aad_ip_checksum values(GETDATE(),"+ "'"+txt_md5+"'" +")"
+    sql = "insert into ip_checksum values(GETDATE(),"+ "'"+txt_md5+"'" +")"
     cursor.execute (sql)
    
 else:
@@ -125,6 +125,6 @@ else:
         print("No new changes in ip list")
     else:
         # delete old checksum and add  checksum of latest file
-        sql = "truncate aad_ip_checksum"
+        sql = "truncate ip_checksum"
         cursor.execute (sql)
         add_policy()
